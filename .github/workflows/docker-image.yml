@@ -30,7 +30,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: your-dockerhub-username/GradingSystem:latest
+          tags: sandrakarangwa/gradingsystem:latest
 
       - name: Image Build Success
         run: echo "Docker Image successfully pushed to Docker Hub"
