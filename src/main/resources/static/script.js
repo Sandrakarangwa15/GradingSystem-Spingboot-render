@@ -20,7 +20,7 @@ form.addEventListener("submit", async (e) => {
 
     if (editMode) {
         // Update Existing Student
-        await fetch(`http://localhost:8080/students/${editStudentId}`, {
+        await fetch(`https://gradingsystem-spingboot-render.onrender.com/students/${editStudentId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(student),
@@ -31,7 +31,7 @@ form.addEventListener("submit", async (e) => {
         form.querySelector("button").textContent = "Submit"; // Reset button text
     } else {
         // Create New Student
-        await fetch("http://localhost:8080/students", {
+        await fetch("https://gradingsystem-spingboot-render.onrender.com/students", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(student),
@@ -44,7 +44,7 @@ form.addEventListener("submit", async (e) => {
 
 // Fetch & Display Students
 async function fetchStudents() {
-    const res = await fetch("http://localhost:8080/students");
+    const res = await fetch("https://gradingsystem-spingboot-render.onrender.com/students");
     const students = await res.json();
 
     tableBody.innerHTML = ""; // Clear existing rows
@@ -80,7 +80,7 @@ function editStudent(id, name, subject1, subject2, subject3, subject4, subject5)
 // Delete Student
 async function deleteStudent(id) {
     if (confirm("Are you sure you want to delete this record?")) {
-        await fetch(`http://localhost:8080/students/${id}`, { method: "DELETE" });
+        await fetch(`https://gradingsystem-spingboot-render.onrender.com/students/${id}`, { method: "DELETE" });
         fetchStudents();
     }
 }
